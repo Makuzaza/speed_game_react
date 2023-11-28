@@ -1,7 +1,6 @@
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Card from '../components/Card';
-import image from '../assets/react.svg';
 
 function Persons ({searchHandler, persons, search, removeHandler}) {
     return (  
