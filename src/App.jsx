@@ -12,10 +12,14 @@ function App() {
 
   const [player, setPlayer] = useState();
   const [circles, setCircles] = useState([]);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(100);
   const [gameLaunch, setGameLaunch] = useState(true);
   const [gameOn, setGameOn] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [current, setCurrent] = useState(-1);
+
+  let timer;
+  let pace = 1000;
 
   const gameSetHandler = (level, name) => {
     // based on level, we find the matching 
@@ -29,21 +33,46 @@ function App() {
     // console.log('circlesArray', circlesArray);
     // console.log('amount of circles', levelAmount);
 
-    setCircles(circlesArray)
+    setCircles(circlesArray);
 
     setPlayer({
       level:level,
       name: name
     })
 
-    setGameLaunch(!gameLaunch)
-    setGameOn(!gameOn)
+    setGameLaunch(!gameLaunch);
+    setGameOn(!gameOn);
+    randomNumber();
   }
 
   const stopHandler = () => {
-    setGameOn(!gameOn)
-    setGameOver(!gameOver)
+    setGameOn(!gameOn);
+    setGameOver(!gameOver);
+    clearTimeout(timer);
   }
+
+  const closeHandler = () => {
+    setGameOver(!gameOver);
+    setGameLaunch(!gameLaunch);
+    setScore(100);
+  }
+
+  const clickHandler = (id) => {
+    // console.log('Clicked on circle with ID:', id);
+    setScore(score + 10);
+};
+
+const getRndInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+const randomNumber = () => {
+  let nextActive;
+  do {
+    nextActive = getRndInt(0, circles.length)
+  } while (nextActive === current);
+  setCurrent(nextActive) 
+  timer = setTimeout(randomNumber, pace);
+  console.log(nextActive)
+};
 
   // console.log(player);
 
@@ -53,8 +82,12 @@ function App() {
 {/* <NewGame onclick={gameSetHandler}/>
 <Game score={score} circles={circles}/> */}
 {gameLaunch && <NewGame onclick={gameSetHandler}/>}
-{gameOn && <Game score={score} circles={circles} stopHandler={stopHandler}/>}
-{gameOver && <GameOver/>}
+{gameOn && (<Game 
+  score={score} 
+  circles={circles} 
+  stopHandler={stopHandler} 
+  clickHandler={clickHandler}/>)}
+{gameOver && <GameOver closeHandler={closeHandler} {...player} score={score}/>}
     </>
   );
 };
