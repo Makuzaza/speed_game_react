@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Snowburst+One&display=swap');
 
-
 :root {
   font-family: "Montserrat", sans-serif;;
   line-height: 1.5;
@@ -72,9 +71,12 @@ button:hover {
   box-shadow: #333 0px 0px 10px;
 }
 
-.circle {
-  background: url('./assets/snow.svg') center center/cover;
+.active {
+  background: url('./assets/snow_flake.png') center center/cover;
+  background-position: center;
+  background-size: contain;
 }
+
 
 .hidden {
   display: none;
@@ -143,7 +145,7 @@ input {
   flex-direction: column;
 }
 
-.name{
+.name {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
