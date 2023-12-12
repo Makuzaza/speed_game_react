@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Snowburst+One&display=swap');
 
 :root {
-  font-family: "Montserrat", sans-serif;;
+  font-family: "Montserrat", sans-serif;
   line-height: 1.5;
   font-weight: 300;
 
   color-scheme: light dark;
   color: rgba(228, 224, 224, 0.87);
   background-color: #cc776c;
-  background-image: url("https://images.unsplash.com/photo-1465189684280-6a8fa9b19a7a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bmF0dXJlLHdhdGVyfHx8fHx8MTY5OTM0ODAyNg&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600");
-
+  background-image: url("https://images.unsplash.com/photo-1514377006585-6e7975371bd6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8d2ludGVyfHx8fHx8MTcwMjM3MTU2OA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600");
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -49,6 +49,8 @@ button {
 
 button:hover {
   background-color: #646cff;
+  color: white;
+  box-shadow: 0 0 30px #f4f2f2;
 }
 
 .circles {
@@ -62,13 +64,11 @@ button:hover {
 .circle {
   background-color: transparent;
   border-radius: 50%;
-  color: #5b5b5b;
   height: 100px;
   width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: #333 0px 0px 10px;
 }
 
 .active {
@@ -91,9 +91,14 @@ button:hover {
 input {
   width: 250px;
   margin-bottom: 20px;
-  padding: 10px;
+  padding: 10px 20px;
   font-family: inherit;
   font-size: inherit;
+  background-color: aliceblue;
+}
+
+input:hover {
+  box-shadow: 0 0 30px #f4f2f2;
 }
 
 .overlay {
