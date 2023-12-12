@@ -42,6 +42,8 @@ input, button  {
 }
 
 button {  
+  font-weight: 400;
+  font-family: "Snowburst One", sans-serif;
   background-color: rgb(183, 204, 224);
   color: #333;
   font-weight: 400;
@@ -77,7 +79,6 @@ button:hover {
   background-size: contain;
 }
 
-
 .hidden {
   display: none;
 }
@@ -86,6 +87,16 @@ button:hover {
   font-weight: 400;
   font-family: "Snowburst One", sans-serif;
   font-size: 2rem;
+  margin-bottom: 30px;
+}
+.score_modal {
+  width: 4rem;
+  background-color: #f4f2f2;
+  border-radius: 10px;
+  font-weight: 400;
+  font-family: "Snowburst One", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
 }
 
 input {
@@ -95,6 +106,7 @@ input {
   font-family: inherit;
   font-size: inherit;
   background-color: aliceblue;
+  color: #333;
 }
 
 input:hover {
@@ -115,19 +127,26 @@ input:hover {
 }
 
 .gameover_box {
-  background: white;
   padding: 1rem;
-  width: 40%;
+  width: 50%;
   min-height: 25%;
   border-radius: 5px;
   position: relative;
   display: grid;
-  justify-items: center;
   align-items: center;
+  justify-items: left;
+  background-image: url('https://images.unsplash.com/photo-1604182798253-cfc2e8beda2b');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+
 }
 
-.gameover_box h2 {
+.gameover_box h2, p {
   font-family: "Snowburst One", sans-serif;
+  background-color: #f4f2f2;
+  border-radius: 10px;
+  padding: 0 5px;
 }
 
 .gameover_box button {
@@ -157,4 +176,6 @@ input:hover {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  background-color: #f4f2f2;
+  padding: 0 5px;
 }

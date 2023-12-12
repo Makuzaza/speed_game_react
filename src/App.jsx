@@ -1,8 +1,12 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import NewGame from "./components/NewGame";
 import { levels } from "./levels";
 import Game from "./components/Game";
 import GameOver from "./components/GameOver";
+import { useSound } from 'use-sound';
+import eating from './assets/eating.mp3';
+import sound from './assets/sound.mp3';
+import footsteps from './assets/footsteps.mp3';
 
 const getRndInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
@@ -23,13 +27,15 @@ function App() {
   let pace = 1000;
   let levelAmount;
 
+  const [soundEat] = useSound(eating);
+  const [soundEnd] = useSound(sound);
+  const [soundSteps, { stop: stopSoundSteps }] = useSound(footsteps);
+
   const gameSetHandler = (level, name) => {
 
   const {amount} = levels.find(el => el.name === level);
   levelAmount = amount;
-
   const circlesArray = Array.from({ length: levelAmount }, (_, i) => i);
-
     setCircles(circlesArray);
 
     setPlayer({
@@ -52,7 +58,8 @@ function App() {
     rounds.current = null;
     pace = 1000;
     clearTimeout(timeoutIdRef.current);
-    timeoutIdRef.current = null;
+    timeoutIdRef.current = null; 
+    soundEnd()
   }
 
   const closeHandler = () => {
@@ -68,7 +75,16 @@ function App() {
     }
     setScore((prevScore) => prevScore + 10);
     rounds.current--;
+    soundEat();
 };
+
+useEffect(() => {
+  if (gameOn) {
+    soundSteps();
+  } else {
+    stopSoundSteps();
+  }
+}, [gameOn, soundSteps, stopSoundSteps]);
 
 const randomNumber = () => {
   if (rounds.current >= 3) {
@@ -87,7 +103,6 @@ const randomNumber = () => {
   rounds.current++;
   pace *= 0.95;
   timeoutIdRef.current = setTimeout(randomNumber, pace);
-  console.log(nextActive)
 };
 
   return (
