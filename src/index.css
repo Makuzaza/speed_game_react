@@ -46,7 +46,6 @@ button {
   font-family: "Snowburst One", sans-serif;
   background-color: rgb(183, 204, 224);
   color: #333;
-  font-weight: 400;
 }
 
 button:hover {
@@ -128,18 +127,16 @@ input:hover {
 
 .gameover_box {
   padding: 1rem;
-  width: 50%;
-  min-height: 25%;
+  width: 400px;
+  height: 270px;
   border-radius: 5px;
   position: relative;
   display: grid;
   align-items: center;
   justify-items: left;
-  background-image: url('https://images.unsplash.com/photo-1604182798253-cfc2e8beda2b');
+  background-image: url('./assets/snow.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
-
-
 }
 
 .gameover_box h2, p {
@@ -178,4 +175,20 @@ input:hover {
   gap: 1rem;
   background-color: #f4f2f2;
   padding: 0 5px;
+}
+
+@media (max-width: 400px) {
+  .gameover_box {
+    padding: 1rem;
+    width: 250px;
+    height: 200px;
+    border-radius: 5px;
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-items: left;
+    background-image: url('./assets/snow.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
