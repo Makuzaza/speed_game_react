@@ -4,7 +4,7 @@ import { levels } from "./levels";
 import Game from "./components/Game";
 import GameOver from "./components/GameOver";
 import { useSound } from 'use-sound';
-import eating from './assets/eating.mp3';
+import ice from './assets/ice.mp3';
 import sound from './assets/sound.mp3';
 import footsteps from './assets/footsteps.mp3';
 
@@ -27,7 +27,7 @@ function App() {
   let pace = 1000;
   let levelAmount;
 
-  const [soundEat] = useSound(eating);
+  const [soundEat] = useSound(ice);
   const [soundEnd] = useSound(sound);
   const [soundSteps, { stop: stopSoundSteps }] = useSound(footsteps);
 
