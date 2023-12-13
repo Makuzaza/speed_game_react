@@ -180,7 +180,7 @@ input:hover {
 @media (max-width: 500px) {
   .gameover_box {
     padding: 1rem;
-    width: 250px;
+    width: 280px;
     height: 200px;
     border-radius: 5px;
     position: relative;
