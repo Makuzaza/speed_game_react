@@ -177,7 +177,7 @@ input:hover {
   padding: 0 5px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .gameover_box {
     padding: 1rem;
     width: 250px;
