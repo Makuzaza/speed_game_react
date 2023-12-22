@@ -24,7 +24,7 @@ function App() {
   const rounds = useRef(0);
   const currentInst = useRef(0);
 
-  let pace = 1000;
+  let pace = 1300;
   let levelAmount;
 
   const [soundEat] = useSound(ice);
