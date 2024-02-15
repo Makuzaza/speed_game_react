@@ -1,3 +1,5 @@
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=Makuzaza_speed_game_react)
+
 # Speed game application
 
 Refactoring my speedgame from JavaScript lessons.
